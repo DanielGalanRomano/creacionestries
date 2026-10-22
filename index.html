@@ -61,7 +61,7 @@ svg.f{fill:currentColor;stroke:none}
 
 
 /* hero */
-.hero{margin-top:0;background:url(images/hero.jpg) center/cover no-repeat,linear-gradient(135deg,var(--pink) 0%,#fff 60%);padding:clamp(28px,5vw,64px) 0}
+.hero{margin-top:0;background:url(hero.png) center/cover no-repeat,url(images/hero.jpg) center/cover no-repeat,linear-gradient(135deg,var(--pink) 0%,#fff 60%);padding:clamp(28px,5vw,64px) 0}
 .hero .btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
 .arr{width:20px;height:20px}
 .hero .w{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(24px,4vw,56px);align-items:center}
@@ -113,18 +113,13 @@ h1 em{font-style:normal;color:var(--red)}
 .alta .fine{margin:0;font-size:13px;color:var(--mut)}
 
 /* nosotros */
-.about{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(20px,4vw,48px);align-items:center}
+.about{max-width:820px;margin:0 auto}
 .hist{font-size:20px;font-weight:800;margin:14px 0 8px;color:var(--red)}
 .about .txt{margin:0 0 10px;color:var(--mut)}.about .txt b{color:var(--ink)}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
 .stat{border:1px solid var(--line);border-radius:16px;padding:16px;text-align:center}
 .stat b{display:block;font:800 26px/1.1 var(--f);color:var(--red)}
 .stat span{font-size:13px;color:var(--mut);font-weight:600}
-.pack{position:relative;border-radius:22px;min-height:220px;background:linear-gradient(135deg,#ffd1d6,#ffe9c8);display:flex;align-items:flex-end;padding:20px;overflow:hidden}
-.pack:before{content:"🎁🎈🧸";position:absolute;right:16px;top:10px;font-size:54px;letter-spacing:6px}
-.pack div{position:relative}
-.pack h3{font-size:22px;font-weight:800;color:var(--red)}
-.pack p{margin:2px 0 12px;color:var(--ink);font-size:14.5px;max-width:30ch}
 
 /* contacto */
 .ct{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,48px);border:1px solid var(--line);border-radius:24px;padding:clamp(22px,4vw,36px)}
@@ -164,7 +159,8 @@ footer nav a:hover{text-decoration:underline}
 @media(max-width:1000px){
  .hw{grid-template-columns:1fr auto}
  .srch{grid-column:1/-1;order:3;max-width:none}
- .hero .w,.alta,.about,.ct{grid-template-columns:1fr}
+ .hero .w,.alta,.ct{grid-template-columns:1fr}
+ .hero{background:linear-gradient(rgba(255,255,255,.7),rgba(255,255,255,.35)),url(hero.png) center/cover no-repeat,url(images/hero.jpg) center/cover no-repeat,var(--pink)}
  .facts{grid-template-columns:1fr 1fr}
  .fact:nth-child(3){border-left:0}
  .fact:nth-child(n+3){border-top:1px solid var(--line)}
@@ -288,7 +284,6 @@ footer nav a:hover{text-decoration:underline}
     <div class="stat"><b>1.500 m²</b><span>Instalaciones</span></div>
    </div>
   </div>
-  <div class="pack"><div><h3>Nuestro packaging</h3><p>Así preparamos y presentamos nuestros productos.</p><a class="btn sm" data-go="instagram" target="_blank" rel="noopener"><svg class="i f" viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg>Ver video</a></div></div>
  </div>
 </div></section>
 
