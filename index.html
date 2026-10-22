@@ -45,6 +45,7 @@ svg.f{fill:currentColor;stroke:none}
 .hw{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px;padding:12px 0}
 .logo{text-decoration:none;color:var(--red);line-height:1;display:block}
 .logo b{display:block;font:400 clamp(24px,3vw,32px)/1 var(--script)}
+.logo img{display:block;height:clamp(36px,4.5vw,48px);width:auto}
 .logo small{display:block;margin-top:4px;font:600 10.5px var(--f);color:var(--red2);letter-spacing:.01em}
 .srch{display:flex;max-width:560px;width:100%;justify-self:center;border:2px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
 .srch:focus-within{border-color:var(--red)}
@@ -113,7 +114,9 @@ h1 em{font-style:normal;color:var(--red)}
 
 /* nosotros */
 .about{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(20px,4vw,48px);align-items:center}
-.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
+.hist{font-size:20px;font-weight:800;margin:14px 0 8px;color:var(--red)}
+.about .txt{margin:0 0 10px;color:var(--mut)}.about .txt b{color:var(--ink)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
 .stat{border:1px solid var(--line);border-radius:16px;padding:16px;text-align:center}
 .stat b{display:block;font:800 26px/1.1 var(--f);color:var(--red)}
 .stat span{font-size:13px;color:var(--mut);font-weight:600}
@@ -185,7 +188,7 @@ footer nav a:hover{text-decoration:underline}
 
 <header class="top">
  <div class="w"><div class="hw">
-  <a class="logo" href="#inicio" aria-label="Creaciones Tries, inicio"><b>Creaciones Tries</b><small>Fabricación e importación de cotillón</small></a>
+  <a class="logo" href="#inicio" aria-label="Creaciones Tries, inicio"><img src="images/logo.png" alt="Creaciones Tries" width="514" height="84"><small>Fabricación e importación de cotillón</small></a>
   <form class="srch" id="srch" role="search">
    <input id="q" type="search" placeholder="Buscá globos, disfraces, descartables…" aria-label="Buscar productos" autocomplete="off">
    <button type="submit" aria-label="Buscar"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
@@ -196,7 +199,7 @@ footer nav a:hover{text-decoration:underline}
   </div>
  </div></div>
  <nav class="nav" aria-label="Principal"><div class="w">
-  <a href="#inicio" aria-current="page">Inicio</a><a href="#productos">Productos</a><a href="#novedades">Novedades</a><a href="#mayoristas">Quiero ser mayorista</a><a href="#contacto">Contacto</a>
+  <a href="#inicio" aria-current="page">Inicio</a><a href="#productos">Productos</a><a href="#novedades">Novedades</a><a href="#mayoristas">Quiero ser mayorista</a><a href="#nosotros">Nosotros</a><a href="#contacto">Contacto</a>
  </div></nav>
 </header>
 
@@ -271,11 +274,18 @@ footer nav a:hover{text-decoration:underline}
 <section id="nosotros"><div class="w">
  <div class="about">
   <div>
-   <h2>Fabricamos e importamos cotillón</h2>
-   <p class="sub" style="margin-bottom:0">Trabajamos con comercios y familias de todo el país. Conocé nuestro showroom en Villa Lynch.</p>
+   <div class="eyebrow">CREACIONES TRIES</div>
+   <h2>Una historia familiar que sigue creciendo.</h2>
+   <h3 class="hist">Nuestra historia</h3>
+   <p class="txt">Creaciones Tries nació en 2010, en el comedor de nuestra casa, como un emprendimiento familiar de nuestros padres y sus cinco hijos. Entre estudios, telas y máquinas de coser, comenzamos a crear nuestros primeros productos de cotillón.</p>
+   <p class="txt">Con esfuerzo, creatividad e innovación constante, fuimos ampliando nuestra producción hasta llegar a nuestras instalaciones actuales de <b>1.500 m²</b>, con un catálogo de <b>más de 3.000 artículos</b>.</p>
+   <p class="txt">En 2025 dimos un nuevo paso incorporando productos importados, complementando nuestra fabricación nacional.</p>
+   <p class="txt">Hoy abastecemos a comercios minoristas y mayoristas de todo el país, conservando la esencia familiar que nos acompaña desde nuestros comienzos.</p>
+   <p class="txt"><b>Seguimos creando, innovando y apostando al futuro, juntos.</b></p>
    <div class="stats">
-    <div class="stat"><b>16</b><span>años en el rubro</span></div>
-        <div class="stat"><b>+3000</b><span>productos en catálogo</span></div>
+    <div class="stat"><b>2010</b><span>Nuestros comienzos</span></div>
+    <div class="stat"><b>+3.000</b><span>Artículos</span></div>
+    <div class="stat"><b>1.500 m²</b><span>Instalaciones</span></div>
    </div>
   </div>
   <div class="pack"><div><h3>Nuestro packaging</h3><p>Así preparamos y presentamos nuestros productos.</p><a class="btn sm" data-go="instagram" target="_blank" rel="noopener"><svg class="i f" viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg>Ver video</a></div></div>
@@ -304,7 +314,7 @@ footer nav a:hover{text-decoration:underline}
 
 <footer><div class="w">
  <a class="logo" href="#inicio"><b>Creaciones Tries</b><small>Fabricación e importación de cotillón</small></a>
- <nav aria-label="Pie"><a href="#inicio">Inicio</a><a href="#productos">Productos</a><a href="#novedades">Novedades</a><a href="#contacto">Contacto</a></nav>
+ <nav aria-label="Pie"><a href="#inicio">Inicio</a><a href="#productos">Productos</a><a href="#novedades">Novedades</a><a href="#nosotros">Nosotros</a><a href="#contacto">Contacto</a></nav>
  <div class="soc">
   <a data-go="instagram" target="_blank" rel="noopener" aria-label="Instagram"><svg class="i" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.700"/><path d="M17 7h.01"/></svg></a>
   <a data-go="facebook" target="_blank" rel="noopener" aria-label="Facebook"><svg class="i" viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
