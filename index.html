@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>document.documentElement.className+=" js"</script>
 <title>Creaciones Tries — Cotillón, disfraces y accesorios</title>
 <meta name="description" content="Fabricación e importación de cotillón. Comprá online para mayoristas y minoristas, con envíos a todo el país.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -177,6 +178,36 @@ footer nav a:hover{text-decoration:underline}
  .path{grid-template-columns:1fr}
  .path .ic{grid-row:auto}
 }
+/* menú hamburguesa (móvil) */
+.burger,.m-only{display:none}
+.burger{width:44px;height:42px;border:2px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);cursor:pointer;place-items:center;padding:0;flex:none}
+.burger:hover{border-color:var(--red);color:var(--red)}
+.burger .bars,.burger .bars:before,.burger .bars:after{width:20px;height:2px;background:currentColor;border-radius:2px}
+.burger .bars{position:relative;transition:background .15s}
+.burger .bars:before,.burger .bars:after{content:"";position:absolute;left:0;transition:transform .2s}
+.burger .bars:before{top:-6px}
+.burger .bars:after{top:6px}
+.top.open .burger .bars{background:transparent}
+.top.open .burger .bars:before{transform:translateY(6px) rotate(45deg)}
+.top.open .burger .bars:after{transform:translateY(-6px) rotate(-45deg)}
+@media(max-width:760px){
+ .js .burger{display:grid}
+ .hr .hide-s{display:none}
+ .hw{gap:10px}
+ .logo{min-width:0}
+ .logo img{height:34px;max-width:100%}
+ .js .nav{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;box-shadow:0 16px 24px rgba(0,0,0,.14);max-height:calc(100vh - 150px);max-height:calc(100dvh - 150px);overflow-y:auto}
+ .js .top.open .nav{display:block}
+ .nav .w{flex-direction:column;gap:0;overflow:visible;padding-top:4px;padding-bottom:16px}
+ .nav a{display:flex;align-items:center;min-height:52px;padding:0 12px;font-size:16px;border-bottom:1px solid var(--line);border-left:3px solid transparent}
+ .nav a:hover,.nav a[aria-current]{border-bottom-color:var(--line);border-left-color:var(--red)}
+ .nav a.m-only{display:flex;justify-content:center;margin-top:14px;border:2px solid var(--red);border-radius:12px;color:var(--red);font-weight:700}
+ .nav a.m-only:hover{background:var(--pink);border-color:var(--red)}
+}
+@media(max-width:560px){
+ .hr .lbl{display:none}
+ .hr .btn.sm{width:42px;padding:0}
+}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cat{transition:none}.cat:hover,.btn:active{transform:none}}
 </style>
 </head>
@@ -191,11 +222,12 @@ footer nav a:hover{text-decoration:underline}
   </form>
   <div class="hr">
    <a class="btn sm out hide-s" href="#acceso">Ingresar</a>
-   <a class="btn sm" data-go="catalogo"><svg class="i" viewBox="0 0 24 24"><path d="M3 4h2l2.4 11h10.200L20 8H6.200"/><circle cx="9" cy="20" r="1.300"/><circle cx="17" cy="20" r="1.300"/></svg>Tienda online</a>
+   <a class="btn sm" data-go="catalogo" aria-label="Tienda online"><svg class="i" viewBox="0 0 24 24"><path d="M3 4h2l2.4 11h10.200L20 8H6.200"/><circle cx="9" cy="20" r="1.300"/><circle cx="17" cy="20" r="1.300"/></svg><span class="lbl">Tienda online</span></a>
+   <button class="burger" id="menuBtn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span class="bars"></span></button>
   </div>
  </div></div>
- <nav class="nav" aria-label="Principal"><div class="w">
-  <a href="#inicio" aria-current="page">Inicio</a><a href="#productos">Productos</a><a href="#novedades">Novedades</a><a href="#mayoristas">Quiero ser mayorista</a><a href="#nosotros">Nosotros</a><a href="#contacto">Contacto</a>
+ <nav class="nav" id="menu" aria-label="Principal"><div class="w">
+  <a href="#inicio" aria-current="page">Inicio</a><a href="#productos">Productos</a><a href="#novedades">Novedades</a><a href="#mayoristas">Quiero ser mayorista</a><a href="#nosotros">Nosotros</a><a href="#contacto">Contacto</a><a class="m-only" href="#acceso">Ingresar</a>
  </div></nav>
 </header>
 
@@ -358,6 +390,15 @@ $('srch').addEventListener('submit',e=>{
  const u=URLS.buscar(q);
  if(u&&u!=='#')location.href=u;else alert('Conectá el buscador con tu tienda en URLS.buscar.');
 });
+
+/* menú móvil */
+const topBar=document.querySelector('.top'),menuBtn=$('menuBtn');
+const setMenu=o=>{topBar.classList.toggle('open',o);menuBtn.setAttribute('aria-expanded',o);menuBtn.setAttribute('aria-label',o?'Cerrar menú':'Abrir menú')};
+menuBtn.addEventListener('click',()=>setMenu(!topBar.classList.contains('open')));
+$('menu').addEventListener('click',e=>{if(e.target.closest('a'))setMenu(false)});
+document.addEventListener('click',e=>{if(!topBar.contains(e.target))setMenu(false)});
+addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
+matchMedia('(min-width:761px)').addEventListener('change',e=>{if(e.matches)setMenu(false)});
 
 const acc=$('acceso');
 const showAcc=()=>{const o=location.hash==='#acceso';acc.hidden=!o;document.body.style.overflow=o?'hidden':''};
