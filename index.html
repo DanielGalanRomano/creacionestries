@@ -43,16 +43,11 @@ svg.f{fill:currentColor;stroke:none}
 
 /* encabezado */
 .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:#fff;border-bottom:1px solid var(--line)}
-.hw{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px;padding:12px 0}
+.hw{display:grid;grid-template-columns:1fr auto;align-items:center;gap:20px;padding:12px 0}
 .logo{text-decoration:none;color:var(--red);line-height:1;display:block}
 .logo b{display:block;font:400 clamp(24px,3vw,32px)/1 var(--script)}
 .logo img{display:block;height:clamp(36px,4.5vw,48px);width:auto}
 .logo small{display:block;margin-top:4px;font:600 10.5px var(--f);color:var(--red2);letter-spacing:.01em}
-.srch{display:flex;max-width:560px;width:100%;justify-self:center;border:2px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
-.srch:focus-within{border-color:var(--red)}
-.srch input{flex:1;min-width:0;border:0;outline:0;padding:0 16px;height:46px;font-size:15px;background:transparent}
-.srch button{border:0;background:var(--red);color:#fff;width:54px;cursor:pointer;display:grid;place-items:center}
-.srch button:hover{background:var(--red2)}
 .hr{display:flex;gap:10px;align-items:center}
 .nav{border-top:1px solid var(--line)}
 .nav .w{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
@@ -113,6 +108,10 @@ h1 em{font-style:normal;color:var(--red)}
 .alta input:focus{outline:0;border-color:var(--red);box-shadow:0 0 0 1px var(--red)}
 .alta .fine{margin:0;font-size:13px;color:var(--mut)}
 
+/* novedades */
+.nov{background:var(--red);color:#fff;text-align:center;border-radius:24px;padding:clamp(24px,4vw,48px)}
+.nov h2,.nov .sub{color:#fff}
+
 /* nosotros */
 .about{max-width:820px;margin:0 auto}
 .hist{font-size:20px;font-weight:800;margin:14px 0 8px;color:var(--red)}
@@ -145,12 +144,7 @@ h1 em{font-style:normal;color:var(--red)}
 @media(max-width:700px){.acc-g{grid-template-columns:1fr}}
 /* footer y flotante */
 footer{margin-top:64px;background:var(--red);color:#fff;padding:28px 0 calc(28px + 70px)}
-footer .w{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-footer .logo{color:#fff}
-footer .logo small{color:#ffd9dd}
-footer nav{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;font-weight:600}
-footer nav a{text-decoration:none;opacity:.95}
-footer nav a:hover{text-decoration:underline}
+footer .w{display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap}
 .soc{display:flex;gap:10px}
 .soc a{width:42px;height:42px;border-radius:50%;background:#fff;color:var(--red);display:grid;place-items:center}
 .fab{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:40;display:flex;align-items:center;gap:10px;height:58px;padding:0 20px 0 16px;border-radius:999px;background:var(--ok);color:#fff;font:700 15px var(--f);text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.3)}
@@ -159,7 +153,6 @@ footer nav a:hover{text-decoration:underline}
 
 @media(max-width:1000px){
  .hw{grid-template-columns:1fr auto}
- .srch{grid-column:1/-1;order:3;max-width:none}
  .hero .w,.alta,.ct{grid-template-columns:1fr}
  .hero{background:linear-gradient(rgba(255,255,255,.7),rgba(255,255,255,.35)),url(hero.png) center/cover no-repeat,url(hero.png) center/cover no-repeat,var(--pink)}
  .facts{grid-template-columns:1fr 1fr}
@@ -216,10 +209,6 @@ footer nav a:hover{text-decoration:underline}
 <header class="top">
  <div class="w"><div class="hw">
   <a class="logo" href="#inicio" aria-label="Creaciones Tries, inicio"><img src="logo.png" alt="Creaciones Tries" width="514" height="84"><small>Fabricación e importación de cotillón</small></a>
-  <form class="srch" id="srch" role="search">
-   <input id="q" type="search" placeholder="Buscá globos, disfraces, descartables…" aria-label="Buscar productos" autocomplete="off">
-   <button type="submit" aria-label="Buscar"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
-  </form>
   <div class="hr">
    <a class="btn sm out hide-s" href="#acceso">Ingresar</a>
    <a class="btn sm" data-go="catalogo" aria-label="Tienda online"><svg class="i" viewBox="0 0 24 24"><path d="M3 4h2l2.4 11h10.200L20 8H6.200"/><circle cx="9" cy="20" r="1.300"/><circle cx="17" cy="20" r="1.300"/></svg><span class="lbl">Tienda online</span></a>
@@ -227,7 +216,7 @@ footer nav a:hover{text-decoration:underline}
   </div>
  </div></div>
  <nav class="nav" id="menu" aria-label="Principal"><div class="w">
-  <a href="#inicio" aria-current="page">Inicio</a><a href="#productos">Productos</a><a href="#novedades">Novedades</a><a href="#mayoristas">Quiero ser mayorista</a><a href="#nosotros">Nosotros</a><a href="#contacto">Contacto</a><a class="m-only" href="#acceso">Ingresar</a>
+  <a href="#inicio" aria-current="page">Inicio</a><a href="#mayoristas">Quiero ser mayorista</a><a href="#novedades">Novedades</a><a href="#nosotros">Nosotros</a><a href="#contacto">Contacto</a><a class="m-only" href="#acceso">Ingresar</a>
  </div></nav>
 </header>
 
@@ -291,18 +280,16 @@ footer nav a:hover{text-decoration:underline}
 </div></section>
 
 
-<section id="novedades"><div class="w" style="text-align:center">
+<section id="novedades"><div class="w"><div class="nov">
  <h2>Novedades</h2>
  <p class="sub">Seguinos en Instagram y enterate de todos los lanzamientos.</p>
  <div class="elfsight-app-72d1db22-e2b0-41bd-87cd-dcc23b8c70d5" data-elfsight-app-lazy></div>
  <script src="https://elfsightcdn.com/platform.js" async></script>
- <a class="btn" style="margin-top:20px" data-go="instagram" target="_blank" rel="noopener">Ver nuestro Instagram</a>
-</div></section>
+</div></div></section>
 
 <section id="nosotros"><div class="w">
  <div class="about">
   <div>
-   <div class="eyebrow">CREACIONES TRIES</div>
    <h2>Una historia familiar que sigue creciendo.</h2>
    <h3 class="hist">Nuestra historia</h3>
    <p class="txt">Creaciones Tries nació en 2010, en el comedor de nuestra casa, como un emprendimiento familiar de nuestros padres y sus cinco hijos. Entre estudios, telas y máquinas de coser, comenzamos a crear nuestros primeros productos de cotillón.</p>
@@ -340,8 +327,6 @@ footer nav a:hover{text-decoration:underline}
 </main>
 
 <footer><div class="w">
- <a class="logo" href="#inicio"><b>Creaciones Tries</b><small>Fabricación e importación de cotillón</small></a>
- <nav aria-label="Pie"><a href="#inicio">Inicio</a><a href="#productos">Productos</a><a href="#novedades">Novedades</a><a href="#nosotros">Nosotros</a><a href="#contacto">Contacto</a></nav>
  <div class="soc">
   <a data-go="instagram" target="_blank" rel="noopener" aria-label="Instagram"><svg class="i" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.700"/><path d="M17 7h.01"/></svg></a>
   <a data-go="facebook" target="_blank" rel="noopener" aria-label="Facebook"><svg class="i" viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
@@ -367,10 +352,9 @@ const URLS={
  login:'#',                              // página de inicio de sesión de la tienda
  catalogo:'#',                           // catálogo / tienda online
  categoria:c=>'#',                       // ej: c=>'https://tutienda.com/categoria/'+c
- buscar:q=>'#',                          // ej: q=>'https://tutienda.com/buscar?q='+encodeURIComponent(q)
  instagram:'https://www.instagram.com/creacionestries/',
  facebook:'https://facebook.com/',
- tiktok:'https://tiktok.com/'
+ tiktok:'https://www.tiktok.com/@creacionestries'
 };
 /* ============================================================= */
 const $=id=>document.getElementById(id);
@@ -384,12 +368,6 @@ document.querySelectorAll('[data-go]').forEach(a=>{
 });
 
 
-$('srch').addEventListener('submit',e=>{
- e.preventDefault();
- const q=$('q').value.trim();if(!q)return;
- const u=URLS.buscar(q);
- if(u&&u!=='#')location.href=u;else alert('Conectá el buscador con tu tienda en URLS.buscar.');
-});
 
 /* menú móvil */
 const topBar=document.querySelector('.top'),menuBtn=$('menuBtn');
